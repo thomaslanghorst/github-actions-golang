@@ -1,0 +1,13 @@
+name: My first github action
+on: push
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "like the video!"
+      - run: echo "subscribe to the channel"
+      - run: echo "and ring the bell!"
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: testfile content
+        run: cat testfile 
