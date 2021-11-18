@@ -15,12 +15,11 @@ jobs:
           go fmt ./...
           go vet ./...
       - name: Run tests
-        run: go test -covermode=count -coverprofile=coverage.out ./...
-      - run: Check coverage > 50%
+        run: go test -covermode=count -coverprofile=coverage.out ./... 
+      - name: Check code coverage > 50%
         run: |
-          echo checking code coverage > 50%
           total=`go tool cover -func=coverage.out | grep total | grep -Eo '[0-9]+\.[0-9]+'`
-          if (( $( echo "$total <= 50" | bc -l ) )) ; then
+          if (( $(echo "$total <= 50" | bc -l) )) ;
             echo "code coverage $total% < 50%"
             exit 1
           fi
