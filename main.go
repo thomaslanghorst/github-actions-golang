@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	port := 8082
+	port := 8083
 
 	db, err := sql.Open("sqlite", "./meals.db")
 	if err != nil {
